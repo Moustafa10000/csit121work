@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <title>Share your Candy Opinions</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="styles.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <header>
+            <h1>Share your candy Opinions</h1>
+
+        <nav>
+            <a href="tierlist.html">Tier list</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+        </header>
+
+        <main>
+
+            <h2>Tell me what you think</h2>
+            <p>fields with * are required.</p>
+
+            <form action="#" method="post">
+
+                <div class="form-row">
+                    <label for="name">Name *</label>
+                    <input id="name" name="name" type="text" required>
+
+                </div>
+
+                <div class="form-row">
+                    <label for="email">Email *</label>
+                    <input id="email" name="email" type="email" required>
+
+                </div>
+
+                <div class="form-row">
+                    <label for="favorite">Favorite candy *</label>
+                    <select id="favorite" name="favorite" required>
+                        <option value="" disabled selected>select one</option>
+                        <option>Sinckers</option>
+                        <option>M&M</option>
+                        <option>Twix</option>
+                        <option>Rees</option>
+                    </select>
+                </div>
+
+                <fieldset class="form-row">
+                    <legend>How often do you eat candy? *</legend>
+                    <label><input type="radio" name="time" value="Daily" required></label>
+                    <label><input type="radio" name="time" value="Weekly">Weekly></label>
+                    <label><input type="radio" name="time" value="Monthly"> Monthly></label>
+                </fieldset>
+
+                <fieldset class="form-row">
+                    <Legend>Allergies? *</Legend>
+                    <label><input type="checkbox" name="allegry" value="Penauts"> penauts></label>
+                    <label><input type="checkbox" name="allegry" value="Dairy"> Dairy></label>
+                    <label><input type="checkbox" name="allegry" value="Gluten"> Gluten></label>
+                </fieldset>
+
+                <div class="form-row">
+                    <label for="comments">Comments *</label>
+                    <textarea id="comments" name="comments" rows="4" required></textarea>
+
+
+                </div>
+
+                <div class="form-row">
+                    <button type="submit">Submit</button>
+                    <button type="reset">reset</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p><small>© 2025</small></p>
+        </footer>
+
+
+    </body>
+</html>
