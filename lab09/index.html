@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Employee Directory</title>
+
+
+    <style>
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+
+        }
+
+        h1 {
+
+            text-align: center;
+
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 22px;
+            border: 2px solid gray;
+            background-color: white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 8px;
+
+        }
+
+        .button:hover {
+            background-color: #ffffff;
+
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+
+        }
+
+        th, td {
+            border: 1px solid gray;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f5f5f5;
+
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+
+
+    </style>
+
+
+<script>
+
+    function loadXMLDoc() {
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                showEmployees(this);
+
+            }
+        };
+
+        xmlhttp.open("Get", "employee.xml", true);
+        xmlhttp.send();
+    }
+
+
+    function showEmployees(xml) {
+        let xmlDoc = xml.responseXML;
+
+        let table =
+            "<tr><th>FirstName</th><th>LastName</th>" +
+            "<th>title</th><th>Division</th>" +
+            "<th>Building</th><th>Room</th></tr>";
+
+
+        let employees = xmlDoc.getElementsByTagName("employee");
+
+        for (let i = 0; i < employees.length; i++) {
+            let first = employees[i].getElementsByTagName("firstname")[0].childNodes[0].nodeValue;
+            let last = employees[i].getElementsByTagName("lastname")[0].childNodes[0].nodeValue;
+            let title = employees[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+            let division = employees[i].getElementsByTagName("division")[0].childNodes[0].nodeValue;
+            let building = employees[i].getElementsByTagName("building")[0].childNodes[0].nodeValue;
+            let room = employees[i].getElementsByTagName("room")[0].childNodes[0].nodeValue;
+
+            table += "<tr><td>" + first + "</td>" +
+                      "<td>" + last + "</td>" +
+                      "<td>" + title + "</td>" +
+                      "<td>" + division + "</td>" +
+                      "<td>" + building + "</td>" +
+                      "<td>" + room + "</td></tr>" ;
+
+
+
+            }
+        
+
+        document.getElementById("employeeTable").innerHTML = table;
+
+        
+    }
+</script>
+</head>
+
+<body>
+    <h1>Employee Directory</h1>
+
+    <div style="text-align: center;">
+        <button type="button" class="button" onclick="loadXMLDoc()">
+            Get Employees Details
+
+        </button>
+    </div>
+
+    <table id="employeeTable"></table>
+</body>
+</html>
